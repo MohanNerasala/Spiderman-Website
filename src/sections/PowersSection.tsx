@@ -57,15 +57,17 @@ const PowersSection: React.FC = () => {
   const offsetY = 160
 
   const mobileX = 0
+  const startY = 130
+  const gapY = 125 // Perfect mathematically even gap for taller premium boxes
 
   const finalPositions = isMobile
     ? [
-        { x: mobileX, y: 130 }, // 0: Right (Wall-Crawling)
-        { x: mobileX, y: 230 }, // 1: Left (Spider-Sense) - pulled down slightly
-        { x: mobileX, y: 294 }, // 2: Right (Web-Shooting) - kept at 130 + 82*2
-        { x: mobileX, y: 380 }, // 3: Left (Super Strength) - pulled closer
-        { x: mobileX, y: 458 }, // 4: Right (Agility & Reflexes) - kept at 130 + 82*4
-        { x: mobileX, y: 520 }, // 5: Left (Healing Factor) - pulled closer
+        { x: mobileX, y: startY + gapY * 0 }, // 0: Right
+        { x: mobileX, y: startY + gapY * 1 }, // 1: Left
+        { x: mobileX, y: startY + gapY * 2 }, // 2: Right
+        { x: mobileX, y: startY + gapY * 3 }, // 3: Left
+        { x: mobileX, y: startY + gapY * 4 }, // 4: Right
+        { x: mobileX, y: startY + gapY * 5 }, // 5: Left
       ]
     : [
         { x: -offsetX, y: -offsetY }, // Top Left
