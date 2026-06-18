@@ -34,7 +34,7 @@ export const App = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-70 scale-[1.15] origin-bottom transform-gpu"
+            className="w-full h-full object-cover opacity-70 md:scale-[1.15] scale-100 origin-bottom transform-gpu"
             style={{ willChange: 'transform' }}
           >
             <source src="/assets/background%20video.mp4" type="video/mp4" />

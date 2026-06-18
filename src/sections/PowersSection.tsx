@@ -58,7 +58,7 @@ const PowersSection: React.FC = () => {
 
   const mobileX = 0
   const startY = 130
-  const gapY = 125 // Perfect mathematically even gap for taller premium boxes
+  const gapY = 100 // Slightly reduced vertical gap to bring the symbols closer together
 
   const finalPositions = isMobile
     ? [
