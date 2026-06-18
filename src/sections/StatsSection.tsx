@@ -20,41 +20,34 @@ const stats: StatData[] = [
 
 const StatsSection: React.FC = () => {
   const containerRef = useGSAPSection(() => {
-    // Select all the value elements we want to animate
-    const counters = gsap.utils.toArray<HTMLElement>('.' + styles.statValue)
     const items = gsap.utils.toArray<HTMLElement>('.' + styles.statItem)
+    const counters = gsap.utils.toArray<HTMLElement>('.' + styles.statValue)
     
-    // Animate items dropping in
-    gsap.fromTo(items, 
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 75%',
-          once: true
-        }
+    // Create a master timeline for the entire section
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 75%',
+        once: true
       }
+    })
+
+    // 1. Animate the cards dropping in
+    tl.fromTo(items, 
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
     )
     
+    // 2. Animate the counters counting up simultaneously
     counters.forEach((counter) => {
       const targetValue = parseFloat(counter.getAttribute('data-target') || '0')
       
-      gsap.to(counter, {
+      tl.to(counter, {
         innerHTML: targetValue,
         duration: 2,
         ease: 'power2.out',
-        snap: { innerHTML: 1 }, // Snaps to integer values during count
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 75%',
-          once: true
-        }
-      })
+        snap: { innerHTML: 1 }
+      }, '<0.2') // Start slightly after the cards begin dropping
     })
   })
 
