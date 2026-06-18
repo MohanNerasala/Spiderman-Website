@@ -1,0 +1,122 @@
+.contactSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.webBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  height: 150vw;
+  max-width: 1500px;
+  max-height: 1500px;
+  z-index: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.webPath {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.heading {
+  font-family: var(--font-rajdhani, 'Rajdhani', sans-serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2em;
+}
+
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.wordWrapper {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.subtext {
+  font-family: var(--font-inter, 'Inter', sans-serif);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #888899;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ctaButton {
+  background: transparent;
+  color: white;
+  border: 2px solid var(--red);
+  padding: 1rem 3rem;
+  font-family: var(--font-rajdhani, 'Rajdhani', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ctaButton:hover {
+  background: var(--red);
+  color: white;
+  box-shadow: var(--glow);
+  animation: glitch 0.3s ease-in-out;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  opacity: 0;
+}
+
+.socialIcon {
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  color: var(--red);
+  filter: drop-shadow(0 0 10px rgba(232, 25, 44, 0.8));
+  transform: translateY(-5px);
+}
